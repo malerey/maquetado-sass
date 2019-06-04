@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
+
+$main-color: rgba(4, 167, 119, 0.8); 
+$main-text-color: #fff;
+$secondary-text-color: #333;
+$auxiliar-text-color: #999;
+$emphasis-color: #ff3654;
+$section-background-color: #fff;
+$banner-background-color: #2d2d2a;
+$title-font: 'Lato', sans-serif;
+$main-font: 'Roboto', sans-serif;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%button {
+  width: 180px;
+  height: 50px;
+  border-radius: 5px;
+  border: solid 3px $main-text-color;
+  font-family: $main-font;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: $main-text-color;
+  background: transparent;
+}
+
+body {
+  margin: 0;
+  .header-container {
+    background-color: $main-color;
+    height: 900px;
+      nav {
+      @include flex-center;
+      justify-content: space-between;
+      height: 40px;
+      padding: 20px;
+      border: solid 2px rgba(0, 0, 0, 0.1);
+      .logo {
+        font-family: $title-font;
+        font-size: 24px;
+        color: $main-text-color;
+      }
+      .menu {
+        font-family: $main-font;
+        font-size: 16px;
+        color: $main-text-color;
+        ul {
+          display: flex;
+          list-style-type: none;
+          li {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    header {
+      @include flex-center;
+      flex-direction: column;
+      background-image: linear-gradient($main-color, $main-color), url("./header-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      .title {
+        width: 520px;
+        font-family: $title-font;
+        font-size: 64px;
+        text-align: center;
+        color: $main-text-color;
+      }
+      .description {
+        width: 520px;
+        margin-top: 40px;
+        margin-bottom: 100px;
+        font-family: $main-font;
+        font-size: 20px;
+        font-weight: 300;
+        text-align: center;
+        color: $main-text-color;
+      }
+      button {
+        @extend %button;
+      }
+    }
+  }
+  .product-description {
+    background-color: $section-background-color;
+    padding: 150px 70px 70px 135px;
+    .title {
+      font-family: $title-font;
+      font-size: 36px;
+      color: $secondary-text-color;
+      margin-bottom: 40px;
+    }
+    .subtitle {
+      font-family: $main-font;
+      font-size: 20px;
+      font-weight: 300;
+      color: $auxiliar-text-color;
+    }
+    .description {
+      @include flex-center;
+      .text {
+        margin-right: 75px;
+        flex: 1;
+        p {
+          margin: 60px 0 100px 0;
+          font-family: $main-font;
+          font-size: 20px;
+          line-height: 1.5;
+          color: $secondary-text-color;
+        }
+      }
+      .image {
+        flex: 1;
+        width: 600px;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      button {
+        @extend %button;
+        background-color: $emphasis-color;
+      }
+    }
+  }
+  .banner {
+    @include flex-center;
+    height: 250px;
+    background-color: $banner-background-color;
+    font-family: $title-font;
+    font-size: 48px;
+    text-align: center;
+    color: $main-text-color;
+  }
+}
